@@ -47,5 +47,7 @@ vbox.add(sw)
 win.add(vbox)
 sw.add(webview)
  
+win.maximize()
 win.show_all()
+
 gtk.main()
