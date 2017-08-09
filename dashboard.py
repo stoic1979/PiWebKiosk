@@ -23,6 +23,11 @@ import webkit
 import gobject
 import sys, warnings
 
+
+def on_webkit_webframe_scrollbars_policy_changed(widget):
+    return True # to stop propagation
+
+
 url = "http://0.0.0.0:5000/"
  
 width=800
@@ -30,7 +35,12 @@ height=480
  
 win = gtk.Window()
 webview = webkit.WebView()
+
+wf = webview.get_main_frame()
+wf.connect("scrollbars-policy-changed", on_webkit_webframe_scrollbars_policy_changed)
+
 sw = gtk.ScrolledWindow()
+sw.set_policy(gtk.POLICY_NEVER, gtk.POLICY_NEVER)
  
 win.set_size_request(width,height)
 win.set_decorated(False)
