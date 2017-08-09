@@ -23,7 +23,7 @@ import webkit
 import gobject
 import sys, warnings
 
-url = "http://www.google.com"
+url = "http://0.0.0.0:5000/"
  
 width=800
 height=480
